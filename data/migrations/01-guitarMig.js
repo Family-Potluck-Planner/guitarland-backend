@@ -1,6 +1,6 @@
 exports.up = function (knex) {
     return knex.schema.createTable("guitars", guitars => {
-      guitars.increments();
+      guitars.increments("guitar_id");
       guitars.string("brand", 128)
         .notNullable()
       guitars.string("model", 128)

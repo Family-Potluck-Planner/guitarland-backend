@@ -7,9 +7,17 @@
     "start": "node index.js",
     "server": "nodemon index.js",
     "migrate": "knex migrate:latest",
-    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand --silent",
+    "rollback": "knex migrate:rollback",
     "seed": "knex seed:run",
-    "rollback": "knex migrate:rollback"
+    "migrateh": "heroku run knex migrate:latest -a guitarlandia",
+    "rollbackh": "heroku run knex migrate:rollback -a guitarlandia",
+    "databaseh": "heroku pg:psql -a guitarlandia",
+    "seedh": "heroku run knex seed:run -a guitarlandia",
+    "test": "cross-env NODE_ENV=testing jest --verbose --runInBand",
+    "deploy": "git push heroku main"
+  },
+  "engines": {
+    "node": "16.13.2"
   },
   "repository": {
     "type": "git",
@@ -27,7 +35,6 @@
     "supertest": "^6.2.2"
   },
   "dependencies": {
-    "@vscode/sqlite3": "^5.0.7",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.0.0",
@@ -35,8 +42,8 @@
     "helmet": "^5.0.2",
     "jsonwebtoken": "^8.5.1",
     "knex": "^1.0.3",
+    "knex-cleaner": "^1.3.1",
     "pg": "^8.7.3",
-    "serve": "^13.0.2",
-    "sqlite3": "^5.0.2"
+    "serve": "^13.0.2"
   }
 }
