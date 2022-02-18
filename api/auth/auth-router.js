@@ -3,6 +3,7 @@ const bcrypt = require('bcryptjs');
 const { checkUsernameExists, unAndPassRequired  } = require('./auth-middleware')
 const { JWT_SECRET } = require('../../secrets');
 const jwt = require('jsonwebtoken');
+const User = require('../../users/users-model')
 
 router.post('/signup', checkUsernameExists, (req, res, next) =>{
     let user = req.body
