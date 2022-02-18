@@ -1,5 +1,5 @@
 exports.seed = function (knex) {
-    return knex("plants").insert({
+    return knex("guitars").insert({
       brand: "Fender",
       model: "Telecaster",
       year: "1956",
