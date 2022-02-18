@@ -45,8 +45,8 @@ function buildToken(user) {
 router.get('/login', (req, res, next) => {
     res.json({message: 'login endpoint successful call'})
 })
-router.get('/register', (req, res, next) => {
-    res.json({message: 'register endpoint successful call'})
+router.get('/signup', (req, res, next) => {
+    res.json({message: 'signup endpoint successful call'})
 })
 
 module.exports = router;
