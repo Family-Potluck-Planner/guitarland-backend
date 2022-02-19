@@ -24,8 +24,8 @@ router.put(
   async (req, res, next) => {
 
     await Guitar.updateGuitar(req.params.id, req.body)
-      .then((updatedPlant) => {
-        res.status(200).json(updatedPlant);
+      .then((updatedGuitar) => {
+        res.status(200).json(updatedGuitar);
       })
       .catch((err) => {
         res.status(404).json(err);
@@ -48,7 +48,7 @@ router.delete("/guitars/:id", validateGuitarId, async (req, res, next) => {
 
 router.get("/guitars", (req, res, next) => {
   
-  Guitar.getGuitars()
+  Guitar.getGuitar()
     .then((guitars) => {
       res.status(201).json(guitars);
     })
