@@ -6,7 +6,7 @@ const {
   validateNewGuitar,
 } = require("./guitars-middleware");
 
-router.post("/", validateNewGuitar, async (req, res, next) => {
+router.post("/guitars", validateNewGuitar, async (req, res, next) => {
 
   await Guitar.insert(req.body)
     .then((guitar) => {
@@ -18,7 +18,7 @@ router.post("/", validateNewGuitar, async (req, res, next) => {
 });
 
 router.put(
-  "/:id",
+  "/guitars/:id",
   validateGuitarId,
   validateGuitarPut,
   async (req, res, next) => {
@@ -33,7 +33,7 @@ router.put(
   }
 );
 
-router.delete("/:id", validateGuitarId, async (req, res, next) => {
+router.delete("/guitars/:id", validateGuitarId, async (req, res, next) => {
 
   const { id } = req.params;
 
@@ -46,7 +46,7 @@ router.delete("/:id", validateGuitarId, async (req, res, next) => {
     });
 });
 
-router.get("/", (req, res, next) => {
+router.get("/guitars", (req, res, next) => {
   
   Guitar.getGuitars()
     .then((guitars) => {
@@ -57,7 +57,7 @@ router.get("/", (req, res, next) => {
     });
 });
 
-router.get("/:id", validateGuitarId, (req, res, next) => {
+router.get("/guitars/:id", validateGuitarId, (req, res, next) => {
  
   const { id } = req.params;
 

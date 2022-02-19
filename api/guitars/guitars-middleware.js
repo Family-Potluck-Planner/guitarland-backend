@@ -1,4 +1,4 @@
-const db = require('../data/dbConfig')
+const db = require('../../data/dbConfig')
 const Guitar = require('./guitars-model');
 
 const validateGuitarId = async (req, res, next) => {
